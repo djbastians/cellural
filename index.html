@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <script src="lib/jquery-3.4.1.js"></script>
+    <script src="lib/lodash.js"></script>
+    <title>Cellural Automata</title>
+    <style media="screen">
+      canvas {
+        border: 1px solid #000000;
+      }
+
+      fieldset,
+      h3,
+      #bordersAmount,
+      #bordersPercentage {
+        display: inline-block;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Cellural Automata</h1>
+    <div>
+      <h3>Microstructure parameters</h3>
+      <br />
+      <label for="width">Width:</label>
+      <input
+        id="width"
+        type="number"
+        name="width"
+        value="10"
+        min="2"
+        max="100"
+      />
+      <label for="height">Height:</label>
+      <input
+        id="height"
+        type="number"
+        name="height"
+        value="10"
+        min="2"
+        max="100"
+      />
+      <label for="nucleonesNumber">Number of nucleones:</label>
+      <input
+        id="nucleonesNumber"
+        type="number"
+        name="nucleonesNumber"
+        value="5"
+        min="1"
+        max="50"
+      />
+      <label for="cellSize">Cell size:</label>
+      <input
+        id="cellSize"
+        type="number"
+        name="cellSize"
+        value="10"
+        min="1"
+        max="20"
+      />
+      <label for="probability">Probability:</label>
+      <input
+        id="probability"
+        type="number"
+        name="probability"
+        value="100"
+        min="1"
+        max="100"
+      />
+      <button id="simulatiion" type="button" name="button">Simulate</button>
+    </div>
+
+    <div>
+      <h3>Inclusions</h3>
+      <br />
+      <fieldset>
+        <h5>Inclusion Type</h5>
+        <select name="inclusionType">
+          <option value="false" selected>None</option>
+          <option value="circle">Circle</option>
+          <option value="square">Square</option>
+        </select>
+      </fieldset>
+      <fieldset>
+        <h5>Inclusion Location</h5>
+        <select name="inclusionLocation">
+          <option value="false" selected>None</option>
+          <option value="begenning">At the begenning</option>
+          <option value="onBorder">On borders</option>
+        </select>
+      </fieldset>
+      <fieldset>
+        <h5>Inclusion Parameters</h5>
+        <label for="inclusionSize">Size</label>
+        <input
+          id="inclusionSize"
+          type="number"
+          name="inclusionSize"
+          value="2"
+          min="1"
+          max="5"
+        />
+        <label for="inclusionAmount">Amount</label>
+        <input
+          id="inclusionAmount"
+          type="number"
+          name="inclusionAmount"
+          value="2"
+          min="1"
+          max="50"
+        />
+      </fieldset>
+      <fieldset>
+        <h5>Structure</h5>
+        <select name="structure">
+          <option value="false" selected>None</option>
+          <option value="dualPhase">Dual Phase</option>
+          <option value="substructure">Substructure</option>
+        </select>
+      </fieldset>
+      <fieldset>
+        <h5>Boders Statistics</h5>
+        <button id="showBorders" type="button" name="showBorders">
+          Show borders
+        </button>
+        <button id="onlyBorders" type="button" name="onlyBorders">
+          Only borders
+        </button>
+        <div id="bordersAmount"></div>
+        <div id="bordersPercentage"></div>
+      </fieldset>
+    </div>
+    <br />
+    <canvas id="canvas" width="0" height="0"></canvas>
+    <script src="js/script.js"></script>
+    <script src="js/utilities.js"></script>
+    <script src="js/grainGrowth.js"></script>
+    <script src="js/inclusions.js"></script>
+    <script src="js/borders.js"></script>
+    <script src="js/structure.js"></script>
+  </body>
+</html>
